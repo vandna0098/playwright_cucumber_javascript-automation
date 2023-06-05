@@ -1,4 +1,4 @@
-# Playwright cucumber with javascript
+# Playwright-Cucumber using javascript
 
 Technologies used:
 

@@ -16,6 +16,7 @@ const OnlineTest = {
     '//*[@id="ctl00_CPHContainer_pnlSignup"]/div/div[2]/div[2]/div[10]/div/span/a',
 
   loginPageTitle: '#ctl00_CPHContainer_pnl_login div span',
+  
 };
 
 module.exports = OnlineTest;

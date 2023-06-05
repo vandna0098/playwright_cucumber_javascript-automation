@@ -4,6 +4,8 @@ const LoginPage = {
   passwordField: '#ctl00_indexLogin2_txtPassword',
   logInBtn: '#ctl00_indexLogin2_lnkbtnSiginIn',
   signupForTestYouBtn: '//*[text()="Or Signup for TestYou"] /..',
+
+  loginErrorText: '#ctl00_CPHContainer_lblOutput',
 };
 
 module.exports = LoginPage;

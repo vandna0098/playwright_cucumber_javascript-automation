@@ -12,6 +12,9 @@ const SignupPage = {
    
     termsAndServiceLink: '//*[text()="By Creating an Account, You Agree To Accept "]//a',
     termsAndServiceHeading: 'div.content div.mainnote p ',
+
+    signupErrorText: '#ctl00_CPHContainer_lblResult',
+    createAFreeAccText: 'ctl00_CPHContainer_pnlSignup',
    
   };
   

@@ -18,47 +18,71 @@ const elementIsChecked = async (p, props) => {
   await p.expectThatSelector(props.selector).isChecked();
 };
 
-const login = async (p, props) => {
-  console.log(`UserName: ${props.username}`);
-  console.log(`Password: ${props.password}`);
 
+
+const signInLink =async (p) => {
+  await p.click(LoginPage.signInLink);
+};
+const loginUserName =async (p , props) => {
+  console.log(`UserName: ${props.username}`);
   await p
-    .click(LoginPage.signInLink)
-    .click(LoginPage.userNameField)
-    .typeText(props.username)
-    .click(LoginPage.passwordField)
-    .typeText(props.password)
-    .click(LoginPage.logInBtn);
+      .click(LoginPage.userNameField)
+      .typeText(props.username);
+};
+const loginUserPassword =async (p , props) => {
+  console.log(`Password: ${props.password}`);
+  await p
+      .click(LoginPage.passwordField)
+      .typeText(props.password);
 };
 
-const signupForTestYou = async (p, props) => {
+const loginBtn =async (p) => {
+  await p.click(LoginPage.logInBtn);
+};
+
+const signupForTestYou = async (p) => {
   await p.click(LoginPage.signInLink).click(LoginPage.signupForTestYouBtn);
 };
 
-const signUp = async (p, props) => {
-  console.log(`UserName: ${props.username}`);
-  console.log(`email: ${props.email}`);
-  console.log(`loginId: ${props.loginId}`);
-  console.log(`password: ${props.password}`);
-  console.log(`reEnterPassword: ${props.reEnterPassword}`);
-  console.log(`wordVerification: ${props.wordVerification}`);
 
-  await p
-    .click(SignupPage.createAnAccountLink)
-    .click(SignupPage.userNameField)
-    .typeText(props.username)
-    .click(SignupPage.emailField)
-    .typeText(props.email)
-    .click(SignupPage.loginIdField)
-    .typeText(props.loginId)
-    .click(SignupPage.passwordField)
-    .typeText(props.password)
-    .click(SignupPage.reEnterPassword)
-    .typeText(props.reEnterPassword)
-    .click(SignupPage.wordVerification)
-    .typeText(props.wordVerification)
-    .click(SignupPage.createMyAccountBtn);
+
+const createAnAccountLink =async (p , props) => {
+  
+  await p.click(SignupPage.createAnAccountLink);
 };
+const enterUserName =async (p , props) => {
+  console.log(`UserName: ${props.username}`);
+  await p.click(SignupPage.userNameField).typeText(props.username);
+};
+
+const enterEmail =async (p , props) => {
+  console.log(`email: ${props.email}`);
+  await p.click(SignupPage.emailField).typeText(props.email);
+};
+const enterloginId =async (p , props) => {
+  console.log(`loginId: ${props.loginId}`);
+  await p.click(SignupPage.loginIdField).typeText(props.loginId);
+};
+const enterPassword =async (p , props) => {
+  console.log(`password: ${props.password}`);
+  await p .click(SignupPage.passwordField).typeText(props.password);
+};
+const renterPassword =async (p , props) => {
+  console.log(`reEnterPassword: ${props.reEnterPassword}`);
+  await p.click(SignupPage.reEnterPassword).typeText(props.reEnterPassword);
+};
+
+const wordVerification =async (p , props) => {
+  console.log(`wordVerification: ${props.wordVerification}`);
+  await p .click(SignupPage.wordVerification).typeText(props.wordVerification);
+};
+
+const createAccountBtn =async (p) => {
+  await p.click(SignupPage.createMyAccountBtn);
+};
+
+
+
 
 const termsAndCondition = async (p) => {
   await p.click(SignupPage.createAnAccountLink).click(SignupPage.termsAndServiceLink);
@@ -100,6 +124,7 @@ const contactExaminerBtn = async (p, props) => {
   await p.click(OnlineTest.contactExaminerBtn);
 };
 const getInnertextAndVerify = async (p, props) => {
+  await p.selector(props.selector).isVisible();
   const actualSelectorText = await cast(p).selector(props.selector).innerText();
   console.log(actualSelectorText);
   if (actualSelectorText == props.expectedtText) {
@@ -118,8 +143,7 @@ module.exports = {
   navigateTo,
   elementIsChecked,
   elementIsVisible,
-  login,
-  signUp,
+ 
   searchTestBtn,
   searchFilter,
   getInnertextAndVerify,
@@ -132,4 +156,17 @@ module.exports = {
   viewDetailBtn,
   searchField,
   onlineTestTab,
+  signInLink,
+  loginUserName,
+  loginUserPassword,
+  createAnAccountLink,
+  enterUserName,
+  enterEmail,
+  enterloginId,
+  enterPassword,
+  renterPassword,
+  createAccountBtn,
+  wordVerification,
+  loginBtn,
+  
 };
